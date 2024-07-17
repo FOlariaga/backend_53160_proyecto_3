@@ -1,0 +1,34 @@
+<div>
+    <h1>Detalle del producto</h1>
+
+    <div class="carts">
+        <div class="cartProduct">
+            <h3>{{data.title}}</h3>
+            <p>
+                {{data.description}} <br>
+                precio ${{data.price}}
+            </p>
+
+            <form action="/api/carts/addProduct" method="post">
+                <input type="hidden" name="product" value={{data._id}}>
+                <h3>cantidad</h3>
+                <input type="number" name="qty" value=1 min="1" required="required">
+                <button type="submit">Agregar al carrito</button>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+<script type="module">
+
+    const button = document.getElementById("addProduct")
+
+    button.addEventListener("click", () => {
+        addProductInCart()
+    })
+
+    const addProductInCart = () => {
+        console.log("hiciste click")
+    }
+</script>
